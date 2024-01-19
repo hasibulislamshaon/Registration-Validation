@@ -23,4 +23,12 @@ country:string;
 @Column()
 email:string;
 
+
+@Column()
+password:string;
+
+
+@Column()
+confirmPassword:string;
+
 }

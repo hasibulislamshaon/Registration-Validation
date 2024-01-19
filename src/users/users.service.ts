@@ -18,6 +18,8 @@ export class UsersService {
     user.address=createUserDto.address;
     user.country=createUserDto.country;
     user.email=createUserDto.email;
+    user.password=createUserDto.password;
+    user.confirmPassword=createUserDto.confirmPassword;
     return this.userRepository.save(user);
   }
 
@@ -38,6 +40,8 @@ export class UsersService {
     user.country=updateUserDto.country;
     user.email=updateUserDto.email;
     user.id=id;
+    user.password=updateUserDto.password;
+    user.confirmPassword=updateUserDto.confirmPassword;
     return this.userRepository.save(user);
   }
 

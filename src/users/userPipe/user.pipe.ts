@@ -8,10 +8,12 @@ export class UserPipe implements PipeTransform {
   async transform(value: any, metadata: ArgumentMetadata): Promise<any> {
    
     const dataValidation=plainToInstance(CreateUserDto,value);
+    
     const errors=await validate(dataValidation);
     if(errors.length>0){
-      throw new BadRequestException("Validation failed\n"+JSON.stringify(errors))
+      throw new BadRequestException("Validation failed"+JSON.stringify(errors))
     }
+
 
     return value;
   }
