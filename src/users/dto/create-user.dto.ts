@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString, Matches, MinLength } from 'class-validator';
+import { Match } from '../password.match';
 export class CreateUserDto {
     @IsNotEmpty({message:'Please provide your first name'})
     @IsString()
@@ -20,12 +21,13 @@ export class CreateUserDto {
     @IsEmail()
     email:string;
 
-
+    @IsNotEmpty()
     @IsString()
     password:string;
 
+    @IsNotEmpty()
     @IsString()
-    //match
+    @Match('password')
     confirmPassword:string;
 
 }
